@@ -12,8 +12,8 @@ public class Academico extends MiembroUniversitario {
     private Departamento departamento; // Relación de agregación
     private List<Seccion> seccionesDictadas;
 
-    public Academico(String rut, String nombre, String correo, String idEmpleado, String tipoContrato) {
-        super(rut, nombre, correo);
+    public Academico(String rut, String nombre, String correo, String password, String idEmpleado, String tipoContrato) {
+        super(rut, nombre, correo, password);
         this.idEmpleado = idEmpleado;
         this.tipoContrato = tipoContrato;
         this.seccionesDictadas = new ArrayList<>();

@@ -24,9 +24,13 @@ public class Inscripcion {
 
     // Getters y Setters
     public Estudiante getEstudiante() { return estudiante; }
+    public void setEstudiante(Estudiante estudiante) {this.estudiante = estudiante;}
     public Seccion getSeccion() { return seccion; }
+    public void setSeccion(Seccion seccion) {this.seccion = seccion;}
     public String getEstadoInscripcion() { return estadoInscripcion; }
     public void setEstadoInscripcion(String estado) { this.estadoInscripcion = estado; }
     public Date getFechaInscripcion() { return fechaInscripcion; }
+    public void setFechaInscripcion(Date fecha) { this.fechaInscripcion = fecha; }
     public List<Calificacion> getCalificaciones() { return calificaciones; }
+
 }
