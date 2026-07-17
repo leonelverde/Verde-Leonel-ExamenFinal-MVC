@@ -20,7 +20,25 @@ public class Departamento {
 
     public void asociarAcademico(Academico acad) {
         // TODO: Asociar el académico a este departamento asegurando la bidireccionalidad segura
-        throw new UnsupportedOperationException("Método asociarAcademico() no implementado aún.");
+        //throw new UnsupportedOperationException("Método asociarAcademico() no implementado aún.");
+        
+        if (acad == null) {
+            return;
+        }
+
+        if (this.equals(acad.getDepartamento())) {
+            return;
+        }
+
+        if (acad.getDepartamento() != null) {
+            acad.getDepartamento().getAcademicos().remove(acad);
+        }
+
+        acad.setDepartamento(this);
+
+        if (!this.academicos.contains(acad)) {
+            this.academicos.add(acad);
+        }
     }
 
     public String getCodigoDepto() { return codigoDepto; }

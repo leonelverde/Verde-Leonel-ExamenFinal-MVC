@@ -30,7 +30,15 @@ public class Asignatura {
 
     public void agregarPrerrequisito(Asignatura asig) {
         // TODO: Agregar asignatura de prerrequisito evitando duplicados
-        throw new UnsupportedOperationException("Método agregarPrerrequisito() no implementado aún.");
+        //throw new UnsupportedOperationException("Método agregarPrerrequisito() no implementado aún.");
+        
+        if (asig == null || this.equals(asig)) {
+            return;
+        }
+
+        if (!this.prerrequisitos.contains(asig)) {
+            this.prerrequisitos.add(asig);
+        }
     }
 
     /**
@@ -38,7 +46,13 @@ public class Asignatura {
      */
     public Seccion crearSeccion(char idGrupo, int cupoMaximo, String horario) {
         // TODO: Crear y retornar una nueva sección. Recuerda que el constructor de Sección es restringido.
-        throw new UnsupportedOperationException("Método crearSeccion() no implementado aún.");
+        //throw new UnsupportedOperationException("Método crearSeccion() no implementado aún.");
+        
+        Seccion nuevaSeccion = new Seccion(idGrupo, cupoMaximo, horario, this);
+        
+        this.secciones.add(nuevaSeccion);
+
+        return nuevaSeccion;
     }
 
     /**
@@ -46,12 +60,19 @@ public class Asignatura {
      */
     public Evaluacion crearEvaluacion(int id, String titulo, float ponderacion) {
         // TODO: Crear y retornar una nueva evaluación oficial de la cátedra.
-        throw new UnsupportedOperationException("Método crearEvaluacion() no implementado aún.");
+        //throw new UnsupportedOperationException("Método crearEvaluacion() no implementado aún.");
+        
+        Evaluacion nuevaEvaluacion = new Evaluacion(id, titulo, ponderacion, this);
+        
+        this.evaluaciones.add(nuevaEvaluacion);
+        
+        return nuevaEvaluacion;
     }
 
     // Getters
     public String getCodigo() { return codigo; }
     public String getNombre() { return nombre; }
+    public int getCreditosSct() { return creditosSct; }
     public List<Asignatura> getPrerrequisitos() { return prerrequisitos; }
     public List<Seccion> getSecciones() { return secciones; }
     public List<Evaluacion> getEvaluaciones() { return evaluaciones; }
