@@ -25,7 +25,25 @@ public class Seccion {
 
     public void asignarDocente(Academico docente) {
         // TODO: Asignar al docente de forma segura controlando la asociación bidireccional
-        throw new UnsupportedOperationException("Método asignarDocente() no implementado aún.");
+        //throw new UnsupportedOperationException("Método asignarDocente() no implementado aún.");
+        
+        if (docente == null) {
+            return;
+        }
+
+        if (this.docenteDicta != null && this.docenteDicta.equals(docente)) {
+            return;
+        }
+
+        if (this.docenteDicta != null) {
+            this.docenteDicta.getSeccionesDictadas().remove(this);
+        }
+
+        this.docenteDicta = docente;
+
+        if (!docente.getSeccionesDictadas().contains(this)) {
+            docente.getSeccionesDictadas().add(this);
+        }
     }
 
     // Getters y Setters
